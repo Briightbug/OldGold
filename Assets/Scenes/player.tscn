@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://chm7lds616pwn"]
+
+[ext_resource type="Script" uid="uid://dkiie7xmepfu5" path="res://Assets/Scripts/player.gd" id="1_6cd4h"]
+[ext_resource type="Texture2D" uid="uid://jksyfrufjjce" path="res://Assets/icon.svg" id="2_7dd06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egera"]
+
+[node name="Player" type="CharacterBody2D" unique_id=4659336]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_6cd4h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=716478106]
+
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=1825903098]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=1726345608]
+texture = ExtResource("2_7dd06")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=397316967]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=848963062]
+shape = SubResource("RectangleShape2D_egera")

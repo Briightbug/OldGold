@@ -13,6 +13,7 @@ config_version=5
 config/name="GBJam 14"
 run/main_scene="uid://dl6bvfp3nsyc7"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0.061417088, 0.16543022, 0.115301274, 1)
 config/icon="res://Assets/icon.svg"
 
 [display]
@@ -77,4 +78,5 @@ Attack={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

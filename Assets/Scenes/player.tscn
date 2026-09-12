@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkiie7xmepfu5" path="res://Assets/Scripts/player.gd" id="1_6cd4h"]
 [ext_resource type="Texture2D" uid="uid://by4fs0iel0en" path="res://Assets/Sprites/player.png" id="2_7dd06"]
+[ext_resource type="Script" uid="uid://baf3j6nxdxvr6" path="res://Assets/Scenes/player_animator.gd" id="2_38rej"]
 
 [sub_resource type="Animation" id="Animation_7dd06"]
 length = 0.001
@@ -74,7 +75,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_w3t24"]
 resource_name = "walk_down"
-length = 4.0
+length = 2.0
 loop_mode = 1
 step = 0.5
 tracks/0/type = "value"
@@ -84,10 +85,45 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(0, 16, 16, 16)]
+"values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(0, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(0, 16, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_lerqx"]
+resource_name = "walk_side"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 32, 16, 16), Rect2(16, 32, 16, 16), Rect2(0, 32, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_c3tg1"]
+resource_name = "walk_up"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(48, 16, 16, 16), Rect2(64, 16, 16, 16), Rect2(48, 16, 16, 16), Rect2(80, 16, 16, 16), Rect2(48, 16, 16, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t1xgp"]
@@ -96,7 +132,9 @@ _data = {
 &"idle_down": SubResource("Animation_38rej"),
 &"idle_side": SubResource("Animation_23lac"),
 &"idle_up": SubResource("Animation_t1xgp"),
-&"walk_down": SubResource("Animation_w3t24")
+&"walk_down": SubResource("Animation_w3t24"),
+&"walk_side": SubResource("Animation_lerqx"),
+&"walk_up": SubResource("Animation_c3tg1")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egera"]
@@ -109,7 +147,11 @@ script = ExtResource("1_6cd4h")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=716478106]
 
-[node name="PlayerAnimator" type="Node2D" parent="." unique_id=1825903098]
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=1825903098 node_paths=PackedStringArray("player", "sprite", "animation_player")]
+script = ExtResource("2_38rej")
+player = NodePath("..")
+sprite = NodePath("Sprite2D")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=1726345608]
 texture = ExtResource("2_7dd06")

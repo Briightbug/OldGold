@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://24uqo77mytxl" path="res://Assets/Sprites/gba_style_tiles.png" id="1_3fuio"]
 [ext_resource type="PackedScene" uid="uid://chm7lds616pwn" path="res://Assets/Scenes/player.tscn" id="1_4ejv0"]
+[ext_resource type="PackedScene" uid="uid://3yoht1e4jwwa" path="res://Assets/Scenes/bed.tscn" id="3_u224g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u224g"]
 texture = ExtResource("1_3fuio")
@@ -108,3 +109,6 @@ tile_set = SubResource("TileSet_4ejv0")
 
 [node name="Player" parent="." unique_id=4659336 instance=ExtResource("1_4ejv0")]
 position = Vector2(71, 80)
+
+[node name="Bed" parent="." unique_id=1551945699 instance=ExtResource("3_u224g")]
+position = Vector2(32, -40)

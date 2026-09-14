@@ -12,6 +12,10 @@ var player_facing : facing
 func _ready() -> void:
 	player_facing = facing.DOWN
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Use"):
+		print("Interact!")
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Up"):
 		direction.y = -move_speed

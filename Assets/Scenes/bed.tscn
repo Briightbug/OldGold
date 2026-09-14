@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://3yoht1e4jwwa"]
 
+[ext_resource type="Texture2D" uid="uid://bx335oy42m2qb" path="res://Assets/Sprites/bed.png" id="1_gaf31"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm6sg"]
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1t0i6"]
 
 [node name="Bed" type="StaticBody2D" unique_id=1551945699]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1810568674]
+texture = ExtResource("1_gaf31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1271750258]
 shape = SubResource("RectangleShape2D_tm6sg")

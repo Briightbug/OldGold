@@ -1,8 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
+@export_group("Player")
 @export var move_speed = 10.0
 @export var move_speed_multiplier = 100.0
+
+@export_group("Interactables")
+@export var bed : Bed
 
 var direction : Vector2
 
@@ -13,8 +17,8 @@ func _ready() -> void:
 	player_facing = facing.DOWN
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Use"):
-		print("Interact!")
+	if event.is_action_pressed("Use") and bed.Interactable == true:
+		bed.interact_with()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Up"):
